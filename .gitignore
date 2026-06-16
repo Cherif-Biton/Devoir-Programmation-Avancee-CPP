@@ -1,0 +1,19 @@
+# C++
+*.o
+*.exe
+*.out
+*.dll
+*.obj
+
+# LaTeX
+*.aux
+*.toc
+*.out
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+*.blg
+*.bbl
+*.lof
+*.lot
+*.log

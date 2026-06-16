@@ -1,0 +1,268 @@
+\documentclass[12pt,a4paper]{article}
+
+% ========== Packages ==========
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage[most]{tcolorbox}
+\usepackage{geometry}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{tocloft}
+
+% ========== Mise en page ==========
+\geometry{margin=2.5cm, headheight=15pt}
+
+% ========== Couleurs ==========
+\definecolor{codeblue}{RGB}{0,0,180}
+\definecolor{codegray}{RGB}{128,128,128}
+\definecolor{codegreen}{RGB}{0,140,0}
+\definecolor{backcolor}{RGB}{245,245,245}
+\definecolor{bordeaux}{RGB}{128,0,32}
+\definecolor{titlecolor}{RGB}{0,51,102}
+\definecolor{sectioncolor}{RGB}{0,102,204}
+\definecolor{tocheader}{RGB}{240,180,180}
+\definecolor{tocblue}{RGB}{0,70,140}
+
+% ========== Table des matieres ==========
+\renewcommand{\contentsname}{}
+\setlength{\cftbeforetoctitleskip}{-1.5cm}
+\setlength{\cftaftertoctitleskip}{0pt}
+\renewcommand{\cftsecfont}{\bfseries\color{tocblue}}
+\renewcommand{\cftsecpagefont}{\bfseries\color{tocblue}}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsubsecfont}{\color{tocblue}}
+\renewcommand{\cftsubsecpagefont}{\color{tocblue}}
+\setlength{\cftbeforesecskip}{6pt}
+\setlength{\cftbeforesubsecskip}{0.1cm}
+
+% ========== Style des listings ==========
+\lstset{
+    backgroundcolor=\color{backcolor},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{codeblue}\bfseries,
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{bordeaux},
+    basicstyle=\ttfamily\footnotesize,
+    breaklines=true,
+    captionpos=b,
+    numbers=left,
+    numbersep=5pt,
+    showstringspaces=false,
+    language=C++,
+    frame=single,
+    rulecolor=\color{codegray},
+    tabsize=2,
+    extendedchars=true,
+    literate=
+        {é}{{\'{e}}}1 {è}{{\`{e}}}1 {ê}{{\^{e}}}1 {ë}{{\"e}}1
+        {à}{{\`{a}}}1 {â}{{\^{a}}}1 {ä}{{\"a}}1
+        {î}{{\^{i}}}1 {ï}{{\"i}}1
+        {ô}{{\^{o}}}1 {ö}{{\"o}}1
+        {ù}{{\`{u}}}1 {û}{{\^{u}}}1 {ü}{{\"u}}1
+        {ç}{{\c{c}}}1 {É}{{\'{E}}}1 {È}{{\`{E}}}1
+        {À}{{\`{A}}}1 {Â}{{\^{A}}}1 {Ô}{{\^{O}}}1
+}
+
+% ========== En-tete et pied de page ==========
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Programmation Avanc\'ee C++}
+\lhead{Universit\'e Nazi BONI}
+\rfoot{Page \thepage}
+\lfoot{LSI 2 -- 2025/2026}
+
+% ========== Titres ==========
+\titleformat{\section}{\large\bfseries\color{codeblue}}{}{0em}{\thesection.\quad}[\titlerule]
+\titleformat{\subsection}{\normalsize\bfseries}{}{0em}{\thesubsection.\quad}
+
+% ========== Debut du document ==========
+\begin{document}
+
+% ========== Page de garde ==========
+\begin{titlepage}
+    \thispagestyle{empty}
+
+    \noindent
+    \begin{tcolorbox}[colback=titlecolor, colframe=titlecolor,
+        width=\linewidth, halign=center]
+        \centering
+        \textcolor{white}{\large \textbf{BURKINA FASO}}\\[0.2cm]
+        \textcolor{white}{\normalsize \textit{La Patrie ou la Mort Nous vaincrons}}
+    \end{tcolorbox}
+
+    \vspace{1cm}
+
+    \noindent
+    \begin{minipage}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=2.2cm]{logo_bf.png}\\[6pt]
+        \small
+        \textsf{Minist\`ere de l'Enseignement}\\
+        \textsf{Sup\'erieur, de la Recherche}\\
+        \textsf{et de l'Innovation}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=2.2cm]{logo_unb.png}\\[6pt]
+        \small
+        \textsf{Universit\'e Nazi Boni}\\
+        \textsf{UFR Sciences Exactes et Appliqu\'ees}\\
+        \textsf{Licence Statistiques et Informatique}
+    \end{minipage}
+
+    \vspace{1cm}
+    \rule{\linewidth}{0.8pt}
+    \vspace{0.5cm}
+
+    \begin{tcolorbox}[colback=sectioncolor!15, colframe=sectioncolor,
+        width=\linewidth, halign=center]
+        \centering
+        \textcolor{sectioncolor}{\large \textbf{Rapport du Devoir de Programmation Avanc\'ee}}\\[0.3cm]
+        \textcolor{sectioncolor}{\large \textbf{Langage C++}}\\[0.3cm]
+    \end{tcolorbox}
+
+    \vspace{0.8cm}
+
+    \begin{center}
+        \textit{Pr\'esent\'e par les membres du groupe :}\\[0.5cm]
+        {\large \textbf{OUATTARA Jean Ulrich}}\\[0.2cm]
+        {\large \textbf{SAKO Biton F.B Ch\'erif}}\\[0.2cm]
+        {\small \'Etudiants en Licence 2 --- Statistiques et Informatique}
+    \end{center}
+
+    \vfill
+
+    \rule{\linewidth}{0.8pt}\\[0.3cm]
+    \noindent
+    \begin{minipage}[t]{0.5\textwidth}
+        \textbf{Charg\'e du cours :}\\[0.2cm]
+        Dr Abdoulaye SERE\\
+        \textit{Ann\'ee acad\'emique 2025--2026}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.4\textwidth}
+        \raggedleft
+        \textbf{Date de limite :}\\[0.2cm]
+        13 Mai 2026
+    \end{minipage}
+
+\end{titlepage}
+
+% ========== Table des matieres ==========
+\clearpage
+
+\tableofcontents
+\newpage
+
+% ========== Introduction ==========
+\section{Introduction}
+
+Ce rapport présente le travail réalisé dans le cadre du devoir de programmation avancée en langage C++. L'objectif principal est de mettre en pratique les concepts fondamentaux de la programmation orientée objet (POO) à travers quatre exercices distincts :
+
+\begin{itemize}[leftmargin=1.5cm]
+    \item \textbf{Exercice 1 :} Implémentation du modèle Déclaration-Définition-Utilisation (DDU) avec la classe \texttt{Livre}.
+    \item \textbf{Exercice 2 :} Mise en œuvre du mécanisme d'héritage avec les classes \texttt{Adresse}, \texttt{Personne} et \texttt{Eleve}.
+    \item \textbf{Exercice 3 :} Conception d'une classe paramétrée (template) \texttt{Client}.
+    \item \textbf{Exercice 4 :} Utilisation de la bibliothèque STL avec un \texttt{vector} d'objets \texttt{Eleve}.
+\end{itemize}
+
+L'ensemble du projet a été développé en respectant le modèle DDU, structuré en fichiers \texttt{.h} pour les déclarations et \texttt{.cpp} pour les définitions. Un menu interactif intégré dans le \texttt{main.cpp} permet de naviguer entre les différents exercices.
+
+% ========== Exercice 1 ==========
+\section{Exercice 1 -- Mod\`ele DDU : Classe Livre}
+
+\subsection{Pr\'esentation}
+
+Le mod\`ele DDU (D\'eclaration-D\'efinition-Utilisation) consiste \`a s\'eparer
+le code en trois niveaux distincts :
+\begin{itemize}[leftmargin=1.5cm]
+    \item \textbf{D\'eclaration} dans le fichier \texttt{Livre.h} : prototype de la classe et de ses membres.
+    \item \textbf{D\'efinition} dans le fichier \texttt{Livre.cpp} : impl\'ementation des m\'ethodes.
+    \item \textbf{Utilisation} dans le \texttt{main.cpp} : appel et utilisation des m\'ethodes.
+\end{itemize}
+
+
+% ========== Exercice 2 ==========
+\section{Exercice 2 -- H\'eritage}
+
+\subsection{Pr\'esentation}
+
+Cet exercice illustre le m\'ecanisme d'h\'eritage en C++.
+La hi\'erarchie des classes est la suivante :
+
+\begin{center}
+\begin{tabular}{c}
+	\texttt{Adresse} \\
+	 $\downarrow$  par composition\\
+    \texttt{Personne} \\
+    $\downarrow$ \\
+    \texttt{Eleve}
+\end{tabular}
+\end{center}
+
+La classe \texttt{Adresse} est \'egalement d\'efinie et assignée à Personne comme une propriété.
+
+
+% ========== Exercice 3 ==========
+\section{Exercice 3 -- Classe Param\'etr\'ee (Template)}
+
+\subsection{Pr\'esentation}
+
+Une classe template (param\'etr\'ee) permet de d\'efinir une classe g\'en\'erique
+dont le type de certains attributs est d\'etermin\'e \`a l'utilisation.
+
+
+\subsection{Structure de la classe Client}
+
+La classe \texttt{Client<T>} poss\`ede un attribut \texttt{id} de type g\'en\'erique \texttt{T},
+ainsi que \texttt{nom} et \texttt{prenom} de type \texttt{string}.
+
+
+% ========== Exercice 4 ==========
+\section{Exercice 4 -- STL : Vector d'El\`eves}
+
+\subsection{Pr\'esentation}
+
+Dans cet exercice, on utilise \texttt{std::vector<Eleve>} pour g\'erer
+une liste dynamique d'\'el\`eves sans se soucier de l'allocation m\'emoire.
+
+\subsection{Saisie des \'el\`eves}
+
+La fonction \texttt{remplirListeEleves()} permet la saisie d'un nombre arbitraire
+d'\'el\`eves. L'utilisation de \texttt{getline()} combin\'ee avec \texttt{cin.ignore()}
+g\`ere correctement les noms compos\'es contenant des espaces. Quant à la fonction \texttt{afficheListeEleves}, elle permet d'afficher la liste des élèves saisis.
+
+
+% ========== Structure du projet ==========
+\section{Structure du Projet}
+
+\begin{center}
+\begin{tabular}{>{\ttfamily}l l}
+    \toprule
+    \textbf{Fichier} & \textbf{R\^ole} \\
+    \midrule
+    livre.h / livre.cpp       & D\'eclaration et d\'efinition de la classe Livre \\
+    Adresse.h / Adresse.cpp   & D\'eclaration et d\'efinition de la classe Adresse \\
+    Personne.h / Personne.cpp & D\'eclaration et d\'efinition de la classe Personne \\
+    Eleve.h / Eleve.cpp       & D\'eclaration et d\'efinition de la classe Eleve \\
+    Client.h                  & Classe template Client (d\'eclaration + d\'efinition) \\
+    main.cpp                  & Menu interactif + utilisation de toutes les classes \\
+    \bottomrule
+\end{tabular}
+\end{center}
+
+% ========== Conclusion ==========
+\section{Conclusion}
+
+Ce projet nous a permis de mettre en pratique les principaux concepts de la programmation orientée objet en C++ : le modèle DDU, l'encapsulation via les getters et setters, l'héritage, les classes templates et l'utilisation de la STL. L'intégration d'un menu interactif dans le \texttt{main.cpp} offre une interface claire pour naviguer entre les différents exercices et visualiser les résultats de chaque classe.
+
+\end{document}
